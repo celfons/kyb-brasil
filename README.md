@@ -23,7 +23,9 @@
 
 Checking a Brazilian counterparty means stitching together half a dozen government sources with different formats: the Receita Federal company registry, the CGU sanction lists, the federal contracts portal. Agents that onboard suppliers, approve marketplace sellers or vet partners in Brazil either skip the check or make ten calls and get something wrong.
 
-KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID); get back structured JSON, a summary in English and Portuguese, and the source URL and fetch time of every fact.
+KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID), or just a company name; get back structured JSON, a summary in English and Portuguese, and the source URL and fetch time of every fact.
+
+Typical agent flow: `br_company_search` (name → CNPJ, free) → `br_risk_screen` (red flags, 0.05) or `br_company_dossier` (everything, 0.15). Many companies? `br_batch_*` takes 10 per payment. Lost a response? `br_replay` returns it free for 10 minutes.
 
 ## Tools
 
@@ -34,7 +36,6 @@ KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID); get back 
 | `br_sanctions_screen` | The company, **all its branches** and its **corporate partners** screened against the official CGU lists: CEIS (debarred), CNEP (anti-corruption penalties), CEPIM (barred non-profits), leniency agreements, plus the **MTE forced-labour employer list**. Each hit has type, issuing body, dates, active flag and an evidence URL | 0.03 |
 | `br_risk_screen` | **Red flags only**: status, sanctions, forced labour, PGFN debt and fiscal regularity (Simples/MEI, CND hint), IBAMA embargoes, OFAC/UN/EU, **economic group** (other companies sharing a partner, with their flags), risk score, per-section data quality | 0.05 |
 | `br_company_dossier` | Everything above plus ownership (no personal IDs), federal government contracts, **active federal debt** (PGFN), **environmental embargoes** (IBAMA), BNDES financing, **OFAC/UN/EU** name screening, municipal gazette mentions, and a deterministic **0-100 risk score** with explained red flags | 0.15 |
-
 | `br_batch_sanctions` / `br_batch_dossier` | Up to **10 CNPJs in one payment** (0.25 / 1.20, 20% off the dossier). Per-item errors come inline; the call is not charged only when nothing succeeds | 0.25 / 1.20 |
 | `br_replay` | Re-read any paid answer from the last 10 minutes with its `receipt.replay_token`. Lost the response? Don't pay twice | **free** |
 
@@ -103,9 +104,21 @@ Payments settle in USDC on Base through the Coinbase facilitator. The payer need
 
 ### Apify
 
-Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs per run) as an Actor on the Apify Store, billed per result.
+Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs per run) as an Actor on the Apify Store, billed per result: full dossier, risk screen, sanctions screening, registration check, or name search (a list of company names → CNPJs).
 
-## Example (real response, trimmed)
+## Where agents find it
+
+- **x402 Bazaar** (Coinbase CDP facilitator catalog): `/v1/dossier`, `/v1/risk`, `/v1/sanctions` and the batch routes are listed with input/output schemas, after real settled payments on Base mainnet.
+- **MCP Registry**: [`io.github.celfons/kyb-brasil`](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.celfons/kyb-brasil), with the manifest at [`/server.json`](https://kyb-br-agents.marcelfons.workers.dev/server.json).
+- **Smithery**: `celfons/kyb-brasil`.
+- **Apify Store**: KYB Brasil Actor (fiat).
+- **For the agent itself**: [`/llms.txt`](https://kyb-br-agents.marcelfons.workers.dev/llms.txt) explains the tools, the workflow and the error contract in plain text.
+
+## Examples
+
+Real, complete responses for every tool are in [`examples/`](examples/): [`br_company_check.json`](examples/br_company_check.json), [`br_sanctions_screen.json`](examples/br_sanctions_screen.json), [`br_risk_screen.json`](examples/br_risk_screen.json), [`br_company_dossier.json`](examples/br_company_dossier.json), [`br_company_search.json`](examples/br_company_search.json), with a [README](examples/README.md) that walks through each section.
+
+A trimmed registration check, to show the shape:
 
 `GET /v1/company?cnpj=33.000.167/0001-01`
 
@@ -181,7 +194,7 @@ Built for company verification (KYB), not for profiling people. CPF numbers are 
 
 ## Status
 
-Production. Runs on Cloudflare Workers. Not legal or compliance advice: verify critical facts at the source URLs included in every answer.
+Production, on Base mainnet (USDC), with settled payments through the Coinbase facilitator. Runs on Cloudflare Workers; data refreshed by scheduled jobs (sanctions and international lists daily, IBAMA daily, MTE weekly, BNDES and PGFN monthly, Receita registry monthly). Not legal or compliance advice: verify critical facts at the source URLs included in every answer.
 
 ---
 
