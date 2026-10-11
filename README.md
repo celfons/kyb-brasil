@@ -29,11 +29,16 @@ KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID); get back 
 
 | Tool | What you get | Price (USDC) |
 |---|---|---|
+| `br_company_search` | **Name → CNPJ.** Full-text search over the Receita Federal registry of active establishments (monthly dump): CNPJ, legal and trade name, city/state, main activity, opening date. Start here when the agent only has a name | **free** (50/day) |
 | `br_company_check` | Receita Federal registration: status (ATIVA, BAIXADA, INAPTA…), legal name, main activity (CNAE), size, age, normalized address | **free** (50/day) |
 | `br_sanctions_screen` | The company, **all its branches** and its **corporate partners** screened against the official CGU lists: CEIS (debarred), CNEP (anti-corruption penalties), CEPIM (barred non-profits), leniency agreements, plus the **MTE forced-labour employer list**. Each hit has type, issuing body, dates, active flag and an evidence URL | 0.03 |
+| `br_risk_screen` | **Red flags only**: status, sanctions, forced labour, PGFN debt and fiscal regularity (Simples/MEI, CND hint), IBAMA embargoes, OFAC/UN/EU, **economic group** (other companies sharing a partner, with their flags), risk score, per-section data quality | 0.05 |
 | `br_company_dossier` | Everything above plus ownership (no personal IDs), federal government contracts, **active federal debt** (PGFN), **environmental embargoes** (IBAMA), BNDES financing, **OFAC/UN/EU** name screening, municipal gazette mentions, and a deterministic **0-100 risk score** with explained red flags | 0.15 |
 
-Every answer includes `summary.en`, `summary.pt`, `sources[]`, `data_freshness`, `generated_at` and `cached`. Errors (invalid or unknown CNPJ, source unavailable) are **never charged**.
+| `br_batch_sanctions` / `br_batch_dossier` | Up to **10 CNPJs in one payment** (0.25 / 1.20, 20% off the dossier). Per-item errors come inline; the call is not charged only when nothing succeeds | 0.25 / 1.20 |
+| `br_replay` | Re-read any paid answer from the last 10 minutes with its `receipt.replay_token`. Lost the response? Don't pay twice | **free** |
+
+Every answer includes `summary.en`, `summary.pt`, `sources[]`, `data_freshness`, `data_quality[]` (per-section reference date, age and grade), `generated_at` and `cached`. Errors (invalid or unknown CNPJ, source unavailable) are **never charged**.
 
 ## Use it
 
@@ -67,11 +72,14 @@ The free tool works in any client. Paid tools answer with an x402 `PAYMENT_REQUI
 
 ```bash
 # free
+curl "https://kyb-br-agents.marcelfons.workers.dev/v1/search?q=petrobras&state=RJ"
 curl "https://kyb-br-agents.marcelfons.workers.dev/v1/company?cnpj=33.000.167/0001-01"
 
 # paid: answers HTTP 402 with a PAYMENT-REQUIRED header (base64 JSON: price, network, payTo)
 curl -i "https://kyb-br-agents.marcelfons.workers.dev/v1/dossier?cnpj=33.000.167/0001-01"
 curl -i "https://kyb-br-agents.marcelfons.workers.dev/v1/sanctions?cnpj=33.000.167/0001-01"
+curl -i "https://kyb-br-agents.marcelfons.workers.dev/v1/risk?cnpj=33.000.167/0001-01"
+curl -i "https://kyb-br-agents.marcelfons.workers.dev/v1/batch/dossier?cnpjs=33000167000101,00000000000191"
 ```
 
 Paying from code with the official x402 client:
@@ -126,7 +134,7 @@ Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs 
 }
 ```
 
-The dossier adds `partners[]`, `sanctions` (hits with evidence URLs), `federal_contracts` (count, total value, sample), `federal_debt` (PGFN: inscriptions, total BRL, judicial, statuses), `environmental_embargoes` (IBAMA: active, total, area in ha, municipalities), `bndes_financing` (contracts, total BRL), `international_sanctions` (exact name matches on OFAC/UN/EU, informational), `gazette_mentions` (latest municipal gazette mentions), `risk` (`level`, `score`, `red_flags[]` with `title`/`detail` in English and Portuguese) and `warnings[]`. A section is `null` with a warning when its source is unavailable, never "nothing on record".
+The dossier adds `partners[]`, `economic_group` (active companies sharing a partner, each with sanction/forced-labour/embargo/debt flags), `fiscal_regularity` (tax regime, debt on record, whether a federal clearance certificate is likely obtainable, and where to issue it), `sanctions` (hits with evidence URLs), `federal_contracts` (count, total value, sample), `federal_debt` (PGFN: inscriptions, total BRL, judicial, statuses), `environmental_embargoes` (IBAMA: active, total, area in ha, municipalities), `bndes_financing` (contracts, total BRL), `international_sanctions` (exact name matches on OFAC/UN/EU, informational), `gazette_mentions` (latest municipal gazette mentions), `risk` (`level`, `score`, `red_flags[]` with `title`/`detail` in English and Portuguese) and `warnings[]`. A section is `null` with a warning when its source is unavailable, never "nothing on record".
 
 ## Risk score
 
@@ -140,6 +148,7 @@ Deterministic: the same data always gives the same score. Points add up to a 0-1
 | Active sanction on another branch of the same company | 40 |
 | Active sanction on a corporate partner | 30 |
 | Active IBAMA environmental embargo | 40 |
+| Sanction, forced labour or embargo in a company sharing a partner | 20 |
 | Active federal debt at the PGFN (+20 if above R$ 1 million) | 20 |
 | Opened less than 12 months ago (+10 if less than 3 months) | 15 |
 | Tiny share capital vs. large federal contracts | 15 |
@@ -154,6 +163,7 @@ Foreign partners, MEI status, BNDES financing, gazette mentions and possible OFA
 | Source | Used for | Freshness |
 |---|---|---|
 | Receita Federal open CNPJ data (via BrasilAPI) | registration, ownership | monthly dump |
+| Receita Federal open CNPJ data (full monthly dump, active establishments + partners) | name search, economic group | re-ingested monthly |
 | CGU / Portal da Transparência: CEIS, CNEP, CEPIM, leniency agreements | sanctions | re-ingested daily |
 | Portal da Transparência: federal contracts | contracts | live |
 | MTE: Cadastro de Empregadores (forced labour) | sanctions | re-ingested weekly |
@@ -167,7 +177,7 @@ Only official open data. No scraping behind logins, no CAPTCHA bypassing.
 
 ## Privacy (LGPD)
 
-Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned, sanctions are never matched against individuals, natural-person rows are dropped from every list at ingestion, and international lists are matched against company names only. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
+Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned, sanctions are never matched against individuals, natural-person rows are dropped from every list at ingestion, partners are linked across companies only through the masked document the Receita itself publishes, and international lists are matched against company names only. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
 
 ## Status
 
