@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>Due diligence on Brazilian companies for AI agents, in one call.</b><br>
-  Registration, ownership, sanctions, federal contracts and an explained risk score, from official sources.<br>
+  Registration, ownership, sanctions, forced-labour list, federal debt, environmental embargoes, federal contracts, BNDES financing, OFAC/UN/EU screening and an explained risk score, from official sources.<br>
   Pay per call with <a href="https://x402.org">x402</a> (USDC). No signup, no API key.
 </p>
 
@@ -30,8 +30,8 @@ KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID); get back 
 | Tool | What you get | Price (USDC) |
 |---|---|---|
 | `br_company_check` | Receita Federal registration: status (ATIVA, BAIXADA, INAPTA…), legal name, main activity (CNAE), size, age, normalized address | **free** (50/day) |
-| `br_sanctions_screen` | The company, **all its branches** and its **corporate partners** screened against the official CGU lists: CEIS (debarred), CNEP (anti-corruption penalties), CEPIM (barred non-profits) and leniency agreements. Each hit has type, issuing body, dates, active flag and an evidence URL | 0.03 |
-| `br_company_dossier` | Everything above plus ownership (no personal IDs), federal government contracts, and a deterministic **0-100 risk score** with explained red flags | 0.15 |
+| `br_sanctions_screen` | The company, **all its branches** and its **corporate partners** screened against the official CGU lists: CEIS (debarred), CNEP (anti-corruption penalties), CEPIM (barred non-profits), leniency agreements, plus the **MTE forced-labour employer list**. Each hit has type, issuing body, dates, active flag and an evidence URL | 0.03 |
+| `br_company_dossier` | Everything above plus ownership (no personal IDs), federal government contracts, **active federal debt** (PGFN), **environmental embargoes** (IBAMA), BNDES financing, **OFAC/UN/EU** name screening, municipal gazette mentions, and a deterministic **0-100 risk score** with explained red flags | 0.15 |
 
 Every answer includes `summary.en`, `summary.pt`, `sources[]`, `data_freshness`, `generated_at` and `cached`. Errors (invalid or unknown CNPJ, source unavailable) are **never charged**.
 
@@ -126,7 +126,7 @@ Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs 
 }
 ```
 
-The dossier adds `partners[]`, `sanctions` (hits with evidence URLs), `federal_contracts` (count, total value, sample), `risk` (`level`, `score`, `red_flags[]` with `title`/`detail` in English and Portuguese) and `warnings[]`.
+The dossier adds `partners[]`, `sanctions` (hits with evidence URLs), `federal_contracts` (count, total value, sample), `federal_debt` (PGFN: inscriptions, total BRL, judicial, statuses), `environmental_embargoes` (IBAMA: active, total, area in ha, municipalities), `bndes_financing` (contracts, total BRL), `international_sanctions` (exact name matches on OFAC/UN/EU, informational), `gazette_mentions` (latest municipal gazette mentions), `risk` (`level`, `score`, `red_flags[]` with `title`/`detail` in English and Portuguese) and `warnings[]`. A section is `null` with a warning when its source is unavailable, never "nothing on record".
 
 ## Risk score
 
@@ -135,16 +135,19 @@ Deterministic: the same data always gives the same score. Points add up to a 0-1
 | Red flag | Points |
 |---|---|
 | Active sanction on this CNPJ | 80 |
+| Listed on the MTE forced-labour employer list | 80 |
 | Registration not active (BAIXADA, INAPTA, SUSPENSA, NULA) | 60 |
 | Active sanction on another branch of the same company | 40 |
 | Active sanction on a corporate partner | 30 |
+| Active IBAMA environmental embargo | 40 |
+| Active federal debt at the PGFN (+20 if above R$ 1 million) | 20 |
 | Opened less than 12 months ago (+10 if less than 3 months) | 15 |
 | Tiny share capital vs. large federal contracts | 15 |
 | Past (expired) sanctions only | 10 |
 | No partners listed where the legal form requires them | 10 |
 | Some source unavailable (section returned null with a warning) | 5 |
 
-Foreign partners and MEI status are reported as information (0 points).
+Foreign partners, MEI status, BNDES financing, gazette mentions and possible OFAC/UN/EU name matches are reported as information (0 points).
 
 ## Data sources
 
@@ -153,12 +156,18 @@ Foreign partners and MEI status are reported as information (0 points).
 | Receita Federal open CNPJ data (via BrasilAPI) | registration, ownership | monthly dump |
 | CGU / Portal da Transparência: CEIS, CNEP, CEPIM, leniency agreements | sanctions | re-ingested daily |
 | Portal da Transparência: federal contracts | contracts | live |
+| MTE: Cadastro de Empregadores (forced labour) | sanctions | re-ingested weekly |
+| PGFN: Dívida Ativa da União (open data) | federal debt | re-ingested monthly |
+| IBAMA: embargo terms | environmental embargoes | re-ingested daily |
+| BNDES: direct financing operations | financing | re-ingested monthly |
+| OFAC SDN, UN Security Council, EU consolidated list (entities only) | name screening | re-ingested daily |
+| Querido Diário: municipal official gazettes | gazette mentions | live |
 
 Only official open data. No scraping behind logins, no CAPTCHA bypassing.
 
 ## Privacy (LGPD)
 
-Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned, sanctions are never matched against individuals, and natural-person rows are dropped from the sanction lists at ingestion. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
+Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned, sanctions are never matched against individuals, natural-person rows are dropped from every list at ingestion, and international lists are matched against company names only. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
 
 ## Status
 
