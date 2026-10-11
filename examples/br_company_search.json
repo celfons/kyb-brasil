@@ -1,0 +1,34 @@
+{
+  "query": "versace medical",
+  "state": "DF",
+  "results": [
+    {
+      "cnpj": "36759231000120",
+      "cnpj_formatted": "36.759.231/0001-20",
+      "legal_name": "VERSACE MEDICAL MANUTENCAO EM EQUIPAMENTOS MEDICOS LTDA",
+      "trade_name": "VERSACE MEDICAL",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4618-4/02",
+      "opened_at": "1991-08-12",
+      "city": "BRASILIA",
+      "state": "DF"
+    }
+  ],
+  "reference_month": "2026-09",
+  "summary": {
+    "en": "1 active establishment(s) matching \"versace medical\" in DF. Best match: VERSACE MEDICAL MANUTENCAO EM EQUIPAMENTOS MEDICOS LTDA (CNPJ 36.759.231/0001-20, BRASILIA/DF). Use the CNPJ with the other tools.",
+    "pt": "1 estabelecimento(s) ativo(s) correspondendo a \"versace medical\" em DF. Melhor resultado: VERSACE MEDICAL MANUTENCAO EM EQUIPAMENTOS MEDICOS LTDA (CNPJ 36.759.231/0001-20, BRASILIA/DF). Use o CNPJ nas outras ferramentas."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ), cadastro de estabelecimentos ativos",
+      "url": "https://www.gov.br/receitafederal/dados",
+      "fetched_at": "2026-10-11T21:28:57.899Z",
+      "reference_date": "2026-09-01"
+    }
+  ],
+  "data_freshness": "Receita Federal monthly dump 2026-09; only ACTIVE establishments are indexed. Companies opened or closed after the dump are not reflected.",
+  "generated_at": "2026-10-11T21:28:57.905Z",
+  "cached": false
+}

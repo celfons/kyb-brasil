@@ -1,0 +1,81 @@
+{
+  "cnpj": "04680054000104",
+  "cnpj_formatted": "04.680.054/0001-04",
+  "legal_name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+  "trade_name": "FAZENDA ACARA",
+  "registration_status": "ATIVA",
+  "registration_status_date": "2005-11-03",
+  "registration_status_reason": "SEM MOTIVO",
+  "opened_at": "1980-05-27",
+  "age_years": 46,
+  "main_activity": {
+    "code": "0115-6/00",
+    "description": "Cultivo de soja"
+  },
+  "secondary_activities": [
+    {
+      "code": "0151-2/01",
+      "description": "Criação de bovinos para corte"
+    },
+    {
+      "code": "0111-3/01",
+      "description": "Cultivo de arroz"
+    },
+    {
+      "code": "0220-9/01",
+      "description": "Extração de madeira em florestas nativas"
+    },
+    {
+      "code": "0111-3/02",
+      "description": "Cultivo de milho"
+    },
+    {
+      "code": "0220-9/03",
+      "description": "Coleta de castanha-do-pará em florestas nativas"
+    },
+    {
+      "code": "4671-1/00",
+      "description": "Comércio atacadista de madeira e produtos derivados"
+    },
+    {
+      "code": "4744-0/02",
+      "description": "Comércio varejista de madeira e artefatos"
+    }
+  ],
+  "size": "MICRO EMPRESA",
+  "legal_nature": "Sociedade Empresária Limitada",
+  "is_headquarters": true,
+  "is_mei": null,
+  "is_simples": null,
+  "address": {
+    "street": "RUA PADRE ANCHIETA",
+    "number": "2285",
+    "complement": "SALA 306",
+    "district": "BIGORRILHO",
+    "city": "CURITIBA",
+    "state": "PR",
+    "zip": "80730000",
+    "country": "BR"
+  },
+  "contact": {
+    "email": null,
+    "phones": [
+      "4130132496"
+    ]
+  },
+  "share_capital_brl": 200000,
+  "summary": {
+    "en": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) is ATIVA at the Receita Federal since 2005-11-03. Headquarters opened 1980-05-27 (46 years), main activity 0115-6/00 Cultivo de soja, size MICRO EMPRESA, based in CURITIBA/PR.",
+    "pt": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) está ATIVA na Receita Federal desde 2005-11-03. Matriz aberta em 1980-05-27 (46 anos), atividade principal 0115-6/00 Cultivo de soja, porte MICRO EMPRESA, sediada em CURITIBA/PR."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ) via BrasilAPI",
+      "url": "https://brasilapi.com.br/api/cnpj/v1/04680054000104",
+      "fetched_at": "2026-10-11T21:28:57.496Z"
+    }
+  ],
+  "data_freshness": "Receita Federal open data is refreshed monthly; status changes may lag up to ~45 days.",
+  "generated_at": "2026-10-11T21:28:57.517Z",
+  "cached": false
+}

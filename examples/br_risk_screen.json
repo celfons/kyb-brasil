@@ -1,0 +1,206 @@
+{
+  "cnpj": "04680054000104",
+  "company": {
+    "cnpj_formatted": "04.680.054/0001-04",
+    "legal_name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+    "registration_status": "ATIVA",
+    "registration_status_date": "2005-11-03",
+    "opened_at": "1980-05-27",
+    "is_mei": null,
+    "is_simples": null,
+    "city": "CURITIBA",
+    "state": "PR"
+  },
+  "sanctions": {
+    "cnpj": "04680054000104",
+    "screened_entities": [
+      {
+        "cnpj": "04680054000104",
+        "name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+        "relation": "self"
+      }
+    ],
+    "hits": [],
+    "clear": true,
+    "active_hits": 0,
+    "expired_hits": 0,
+    "warnings": []
+  },
+  "federal_debt": null,
+  "environmental_embargoes": {
+    "active": 23,
+    "total": 23,
+    "area_ha": 6876.03,
+    "last_embargo_at": "2025-11-23",
+    "municipalities": [
+      "Humaitá/AM",
+      "Tapauá/AM",
+      "Manaus/AM"
+    ],
+    "evidence_url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php"
+  },
+  "international_sanctions": {
+    "possible_matches": [],
+    "screened_names": [
+      "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA"
+    ],
+    "lists_reference_date": "2026-09-22"
+  },
+  "fiscal_regularity": {
+    "tax_regime": null,
+    "federal_debt_on_record": null,
+    "debt_reference_date": null,
+    "likely_eligible_for_cnd": null,
+    "cnd_url": "https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/PJ/Emitir",
+    "note": {
+      "en": "unknown tax regime; PGFN debt data unavailable. A federal clearance certificate (CND) also checks pending RFB items not in open data: issue it at the Receita Federal to confirm.",
+      "pt": "regime tributário desconhecido; dados de dívida da PGFN indisponíveis. A Certidão Negativa de Débitos (CND) também verifica pendências da RFB que não estão em dados abertos: emita na Receita Federal para confirmar."
+    }
+  },
+  "economic_group": {
+    "partners_checked": 2,
+    "companies": [],
+    "total": 0,
+    "reference_month": "2026-09"
+  },
+  "risk": {
+    "level": "medium",
+    "score": 45,
+    "red_flags": [
+      {
+        "code": "ENVIRONMENTAL_EMBARGO_ACTIVE",
+        "severity": "high",
+        "points": 40,
+        "title": {
+          "en": "Active IBAMA environmental embargo",
+          "pt": "Embargo ambiental ativo (IBAMA)"
+        },
+        "detail": {
+          "en": "23 active embargo term(s) covering 6.876 ha by IBAMA, latest on 2025-11-23 (Humaitá/AM, Tapauá/AM, Manaus/AM). Activity in the embargoed area is forbidden; buying from it can be an offence.",
+          "pt": "23 termo(s) de embargo ativo(s) somando 6.876 ha do IBAMA, o mais recente em 2025-11-23 (Humaitá/AM, Tapauá/AM, Manaus/AM). A atividade na área embargada é proibida; comprar dela pode ser infração."
+        },
+        "evidence_url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php"
+      },
+      {
+        "code": "DATA_STALE",
+        "severity": "low",
+        "points": 5,
+        "title": {
+          "en": "Some data could not be refreshed",
+          "pt": "Parte dos dados não pôde ser atualizada"
+        },
+        "detail": {
+          "en": "Warnings: FEDERAL_DEBT_UNAVAILABLE. The score ignores the affected sections.",
+          "pt": "Avisos: FEDERAL_DEBT_UNAVAILABLE. O score ignora as seções afetadas."
+        }
+      }
+    ]
+  },
+  "data_quality": [
+    {
+      "section": "company",
+      "reference_date": "2026-09-01",
+      "age_days": 40,
+      "grade": "fresh"
+    },
+    {
+      "section": "sanctions",
+      "reference_date": "2026-10-08",
+      "age_days": 3,
+      "grade": "fresh"
+    },
+    {
+      "section": "federal_debt",
+      "reference_date": null,
+      "age_days": null,
+      "grade": "unavailable"
+    },
+    {
+      "section": "environmental_embargoes",
+      "reference_date": "2026-10-09",
+      "age_days": 2,
+      "grade": "fresh"
+    },
+    {
+      "section": "international_sanctions",
+      "reference_date": "2026-09-22",
+      "age_days": 19,
+      "grade": "fresh"
+    },
+    {
+      "section": "economic_group",
+      "reference_date": "2026-09-01",
+      "age_days": 40,
+      "grade": "fresh"
+    }
+  ],
+  "warnings": [
+    "FEDERAL_DEBT_UNAVAILABLE"
+  ],
+  "summary": {
+    "en": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) is ATIVA, opened 1980-05-27, 2 partner(s) on record, no active sanctions, federal debt unavailable, 23 active environmental embargo(es). Risk MEDIUM (45/100). Main concerns: active ibama environmental embargo; some data could not be refreshed.",
+    "pt": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) está ATIVA, aberta em 1980-05-27, 2 sócio(s) no cadastro, sem sanções ativas, dívida federal indisponível, 23 embargo(s) ambiental(is) ativo(s). Risco MÉDIO (45/100). Principais pontos: embargo ambiental ativo (ibama); parte dos dados não pôde ser atualizada."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ) via BrasilAPI",
+      "url": "https://brasilapi.com.br/api/cnpj/v1/04680054000104",
+      "fetched_at": "2026-10-11T21:28:57.771Z"
+    },
+    {
+      "name": "CEIS — Empresas Inidôneas e Suspensas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/ceis/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CNEP — Empresas Punidas (Lei Anticorrupção) — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cnep/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CEPIM — Entidades Privadas sem Fins Lucrativos Impedidas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cepim/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Acordos de Leniência — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/acordos-leniencia/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Cadastro de Empregadores (trabalho análogo à escravidão) — MTE",
+      "url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/combate-ao-trabalho-escravo-e-analogo-ao-de-escravo",
+      "fetched_at": "2026-10-11T20:29:04.061Z",
+      "reference_date": "2026-10-11"
+    },
+    {
+      "name": "Termos de Embargo — dados abertos IBAMA",
+      "url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php",
+      "fetched_at": "2026-10-11T20:31:36.293Z",
+      "reference_date": "2026-10-09"
+    },
+    {
+      "name": "OFAC SDN, UN Consolidated List, EU Consolidated Sanctions List (entities)",
+      "url": "https://sanctionssearch.ofac.treas.gov/",
+      "fetched_at": "2026-10-11T20:29:32.613Z",
+      "reference_date": "2026-09-22"
+    },
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ), cadastro de estabelecimentos ativos e sócios",
+      "url": "https://www.gov.br/receitafederal/dados",
+      "fetched_at": "2026-10-11T21:28:57.692Z",
+      "reference_date": "2026-09-01"
+    }
+  ],
+  "data_freshness": "Receita Federal data is a monthly dump (status changes may lag ~45 days). CGU sanction lists, IBAMA embargoes and international lists are re-ingested daily; the MTE forced-labour list weekly; BNDES monthly; PGFN federal debt quarterly (published ~2 months after the quarter). Federal contracts and gazette mentions are read live.",
+  "generated_at": "2026-10-11T21:28:57.866Z",
+  "cached": false,
+  "receipt": {
+    "replay_token": "6325459c-838a-4e70-82ff-e47b11469523",
+    "replay_until": "2026-10-11T21:38:57.866Z"
+  }
+}

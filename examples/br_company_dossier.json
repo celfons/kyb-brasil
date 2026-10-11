@@ -1,0 +1,236 @@
+{
+  "cnpj": "04680054000104",
+  "company": {
+    "cnpj": "04680054000104",
+    "cnpj_formatted": "04.680.054/0001-04",
+    "legal_name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+    "trade_name": "FAZENDA ACARA",
+    "registration_status": "ATIVA",
+    "registration_status_date": "2005-11-03",
+    "registration_status_reason": "SEM MOTIVO",
+    "opened_at": "1980-05-27",
+    "age_years": 46,
+    "main_activity": {
+      "code": "0115-6/00",
+      "description": "Cultivo de soja"
+    },
+    "secondary_activities": [
+      {
+        "code": "0151-2/01",
+        "description": "Criação de bovinos para corte"
+      },
+      {
+        "code": "0111-3/01",
+        "description": "Cultivo de arroz"
+      },
+      {
+        "code": "0220-9/01",
+        "description": "Extração de madeira em florestas nativas"
+      },
+      {
+        "code": "0111-3/02",
+        "description": "Cultivo de milho"
+      },
+      {
+        "code": "0220-9/03",
+        "description": "Coleta de castanha-do-pará em florestas nativas"
+      },
+      {
+        "code": "4671-1/00",
+        "description": "Comércio atacadista de madeira e produtos derivados"
+      },
+      {
+        "code": "4744-0/02",
+        "description": "Comércio varejista de madeira e artefatos"
+      }
+    ],
+    "size": "MICRO EMPRESA",
+    "legal_nature": "Sociedade Empresária Limitada",
+    "is_headquarters": true,
+    "is_mei": null,
+    "is_simples": null,
+    "address": {
+      "street": "RUA PADRE ANCHIETA",
+      "number": "2285",
+      "complement": "SALA 306",
+      "district": "BIGORRILHO",
+      "city": "CURITIBA",
+      "state": "PR",
+      "zip": "80730000",
+      "country": "BR"
+    },
+    "contact": {
+      "email": null,
+      "phones": [
+        "4130132496"
+      ]
+    },
+    "share_capital_brl": 200000
+  },
+  "partners": [
+    {
+      "name": "EDUARDO GERMANO DRESCH",
+      "role": "Sócio-Administrador",
+      "cnpj": null,
+      "joined_at": "2006-01-16",
+      "age_bracket": "Entre 61 a 70 anos",
+      "country": null
+    },
+    {
+      "name": "JACQUELINE DRESCH",
+      "role": "Sócio",
+      "cnpj": null,
+      "joined_at": "2021-11-08",
+      "age_bracket": "Entre 51 a 60 anos",
+      "country": null
+    }
+  ],
+  "sanctions": {
+    "cnpj": "04680054000104",
+    "screened_entities": [
+      {
+        "cnpj": "04680054000104",
+        "name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+        "relation": "self"
+      }
+    ],
+    "hits": [],
+    "clear": true,
+    "active_hits": 0,
+    "expired_hits": 0,
+    "warnings": []
+  },
+  "federal_contracts": null,
+  "federal_debt": null,
+  "environmental_embargoes": {
+    "active": 23,
+    "total": 23,
+    "area_ha": 6876.03,
+    "last_embargo_at": "2025-11-23",
+    "municipalities": [
+      "Humaitá/AM",
+      "Tapauá/AM",
+      "Manaus/AM"
+    ],
+    "evidence_url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php"
+  },
+  "bndes_financing": {
+    "contracts": 0,
+    "total_contracted_brl": 0,
+    "last_contract_at": null,
+    "client_size": null,
+    "evidence_url": "https://www.bndes.gov.br/wps/portal/site/home/transparencia/consulta-operacoes-bndes/"
+  },
+  "international_sanctions": {
+    "possible_matches": [],
+    "screened_names": [
+      "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA"
+    ],
+    "lists_reference_date": "2026-09-22"
+  },
+  "gazette_mentions": null,
+  "risk": {
+    "level": "medium",
+    "score": 45,
+    "red_flags": [
+      {
+        "code": "ENVIRONMENTAL_EMBARGO_ACTIVE",
+        "severity": "high",
+        "points": 40,
+        "title": {
+          "en": "Active IBAMA environmental embargo",
+          "pt": "Embargo ambiental ativo (IBAMA)"
+        },
+        "detail": {
+          "en": "23 active embargo term(s) covering 6.876 ha by IBAMA, latest on 2025-11-23 (Humaitá/AM, Tapauá/AM, Manaus/AM). Activity in the embargoed area is forbidden; buying from it can be an offence.",
+          "pt": "23 termo(s) de embargo ativo(s) somando 6.876 ha do IBAMA, o mais recente em 2025-11-23 (Humaitá/AM, Tapauá/AM, Manaus/AM). A atividade na área embargada é proibida; comprar dela pode ser infração."
+        },
+        "evidence_url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php"
+      },
+      {
+        "code": "DATA_STALE",
+        "severity": "low",
+        "points": 5,
+        "title": {
+          "en": "Some data could not be refreshed",
+          "pt": "Parte dos dados não pôde ser atualizada"
+        },
+        "detail": {
+          "en": "Warnings: FEDERAL_CONTRACTS_NOT_CONFIGURED, FEDERAL_DEBT_UNAVAILABLE, GAZETTES_UNAVAILABLE. The score ignores the affected sections.",
+          "pt": "Avisos: FEDERAL_CONTRACTS_NOT_CONFIGURED, FEDERAL_DEBT_UNAVAILABLE, GAZETTES_UNAVAILABLE. O score ignora as seções afetadas."
+        }
+      }
+    ]
+  },
+  "warnings": [
+    "FEDERAL_CONTRACTS_NOT_CONFIGURED",
+    "FEDERAL_DEBT_UNAVAILABLE",
+    "GAZETTES_UNAVAILABLE"
+  ],
+  "summary": {
+    "en": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) is ATIVA, opened 1980-05-27, 2 partner(s) on record, no active sanctions, federal debt unavailable, 23 active environmental embargo(es), federal contracts unavailable. Risk MEDIUM (45/100). Main concerns: active ibama environmental embargo; some data could not be refreshed.",
+    "pt": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA (CNPJ 04.680.054/0001-04) está ATIVA, aberta em 1980-05-27, 2 sócio(s) no cadastro, sem sanções ativas, dívida federal indisponível, 23 embargo(s) ambiental(is) ativo(s), contratos federais indisponíveis. Risco MÉDIO (45/100). Principais pontos: embargo ambiental ativo (ibama); parte dos dados não pôde ser atualizada."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ) via BrasilAPI",
+      "url": "https://brasilapi.com.br/api/cnpj/v1/04680054000104",
+      "fetched_at": "2026-10-11T20:34:40.924Z"
+    },
+    {
+      "name": "CEIS — Empresas Inidôneas e Suspensas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/ceis/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CNEP — Empresas Punidas (Lei Anticorrupção) — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cnep/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CEPIM — Entidades Privadas sem Fins Lucrativos Impedidas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cepim/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Acordos de Leniência — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/acordos-leniencia/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Cadastro de Empregadores (trabalho análogo à escravidão) — MTE",
+      "url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/combate-ao-trabalho-escravo-e-analogo-ao-de-escravo",
+      "fetched_at": "2026-10-11T20:29:04.061Z",
+      "reference_date": "2026-10-11"
+    },
+    {
+      "name": "Termos de Embargo — dados abertos IBAMA",
+      "url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php",
+      "fetched_at": "2026-10-11T20:31:36.293Z",
+      "reference_date": "2026-10-09"
+    },
+    {
+      "name": "Operações não automáticas — dados abertos BNDES",
+      "url": "https://www.bndes.gov.br/wps/portal/site/home/transparencia/consulta-operacoes-bndes/",
+      "fetched_at": "2026-10-11T20:29:08.913Z",
+      "reference_date": "2026-10-02"
+    },
+    {
+      "name": "OFAC SDN, UN Consolidated List, EU Consolidated Sanctions List (entities)",
+      "url": "https://sanctionssearch.ofac.treas.gov/",
+      "fetched_at": "2026-10-11T20:29:32.613Z",
+      "reference_date": "2026-09-22"
+    }
+  ],
+  "data_freshness": "Receita Federal data is a monthly dump (status changes may lag ~45 days). CGU sanction lists, IBAMA embargoes and international lists are re-ingested daily; the MTE forced-labour list weekly; BNDES monthly; PGFN federal debt quarterly (published ~2 months after the quarter). Federal contracts and gazette mentions are read live.",
+  "generated_at": "2026-10-11T21:28:57.651Z",
+  "cached": true,
+  "receipt": {
+    "replay_token": "1b898052-4e8a-4c4a-8121-7b12122c110e",
+    "replay_until": "2026-10-11T21:38:57.651Z"
+  }
+}

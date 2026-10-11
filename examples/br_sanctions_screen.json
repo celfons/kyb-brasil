@@ -1,0 +1,63 @@
+{
+  "cnpj": "04680054000104",
+  "screened_entities": [
+    {
+      "cnpj": "04680054000104",
+      "name": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA",
+      "relation": "self"
+    }
+  ],
+  "hits": [],
+  "clear": true,
+  "active_hits": 0,
+  "expired_hits": 0,
+  "warnings": [],
+  "summary": {
+    "en": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA and 0 related entities have no records in CEIS, CNEP, CEPIM, leniency agreements or the forced-labour employer list.",
+    "pt": "ACARA AGROHEVEA INDUSTRIA COMERCIO E SERVICOS LTDA e 0 entidades relacionadas não constam no CEIS, CNEP, CEPIM, em acordos de leniência nem no cadastro de empregadores (trabalho escravo)."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ) via BrasilAPI",
+      "url": "https://brasilapi.com.br/api/cnpj/v1/04680054000104",
+      "fetched_at": "2026-10-11T21:28:57.597Z"
+    },
+    {
+      "name": "CEIS — Empresas Inidôneas e Suspensas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/ceis/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CNEP — Empresas Punidas (Lei Anticorrupção) — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cnep/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "CEPIM — Entidades Privadas sem Fins Lucrativos Impedidas — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/cepim/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Acordos de Leniência — Portal da Transparência (CGU)",
+      "url": "https://portaldatransparencia.gov.br/download-de-dados/acordos-leniencia/20261008",
+      "fetched_at": "2026-10-11T14:47:19.174Z",
+      "reference_date": "2026-10-08"
+    },
+    {
+      "name": "Cadastro de Empregadores (trabalho análogo à escravidão) — MTE",
+      "url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/combate-ao-trabalho-escravo-e-analogo-ao-de-escravo",
+      "fetched_at": "2026-10-11T20:29:04.061Z",
+      "reference_date": "2026-10-11"
+    }
+  ],
+  "data_freshness": "CGU sanction lists are re-ingested daily (reference 2026-10-08); the MTE forced-labour employer list is re-ingested weekly (reference 2026-10-11). Partners come from the monthly Receita Federal dump.",
+  "generated_at": "2026-10-11T21:28:57.618Z",
+  "cached": false,
+  "receipt": {
+    "replay_token": "e7a292a5-807f-475d-84c6-db6adb4317dd",
+    "replay_until": "2026-10-11T21:38:57.618Z"
+  }
+}
