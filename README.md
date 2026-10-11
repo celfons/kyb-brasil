@@ -25,7 +25,7 @@ Checking a Brazilian counterparty means stitching together half a dozen governme
 
 KYB Brasil does the stitching. Send a CNPJ (the Brazilian company ID), or just a company name; get back structured JSON, a summary in English and Portuguese, and the source URL and fetch time of every fact.
 
-Typical agent flow: `br_company_search` (name → CNPJ, free) → `br_risk_screen` (red flags, 0.05) or `br_company_dossier` (everything, 0.15). Many companies? `br_batch_*` takes 10 per payment. Lost a response? `br_replay` returns it free for 10 minutes.
+Typical agent flow: `br_company_search` (name → CNPJ, free) → `br_risk_screen` (red flags, 0.05) or `br_company_dossier` (everything, 0.15). Many companies? `br_batch_*` takes 10 per payment. Lost a response? `br_replay` returns it free for 10 minutes. Prospecting instead of checking? `br_company_count` (free) then `br_company_list` (0.05 per 100 companies by CNAE, state, city, opening date).
 
 ## Tools
 
@@ -37,6 +37,7 @@ Typical agent flow: `br_company_search` (name → CNPJ, free) → `br_risk_scree
 | `br_risk_screen` | **Red flags only**: status, sanctions, forced labour, PGFN debt and fiscal regularity (Simples/MEI, CND hint), IBAMA embargoes, OFAC/UN/EU, **economic group** (other companies sharing a partner, with their flags), risk score, per-section data quality | 0.05 |
 | `br_company_dossier` | Everything above plus ownership (no personal IDs), federal government contracts, **active federal debt** (PGFN), **environmental embargoes** (IBAMA), BNDES financing, **OFAC/UN/EU** name screening, municipal gazette mentions, and a deterministic **0-100 risk score** with explained red flags | 0.15 |
 | `br_batch_sanctions` / `br_batch_dossier` | Up to **10 CNPJs in one payment** (0.25 / 1.20, 20% off the dossier). Per-item errors come inline; the call is not charged only when nothing succeeds | 0.25 / 1.20 |
+| `br_company_count` / `br_company_list` | **Prospecting.** How many active companies match a CNAE / state / city / opening-date filter (free), then the list itself: 100 per page with CNPJ, names, city/state, CNAE and opening date, stable paging (0.05 per page). Feed the results into `br_risk_screen` to qualify leads | free / 0.05 |
 | `br_replay` | Re-read any paid answer from the last 10 minutes with its `receipt.replay_token`. Lost the response? Don't pay twice | **free** |
 
 Every answer includes `summary.en`, `summary.pt`, `sources[]`, `data_freshness`, `data_quality[]` (per-section reference date, age and grade), `generated_at` and `cached`. Errors (invalid or unknown CNPJ, source unavailable) are **never charged**.
@@ -190,7 +191,7 @@ Only official open data. No scraping behind logins, no CAPTCHA bypassing.
 
 ## Privacy (LGPD)
 
-Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned, sanctions are never matched against individuals, natural-person rows are dropped from every list at ingestion, partners are linked across companies only through the masked document the Receita itself publishes, and international lists are matched against company names only. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
+Built for company verification (KYB), not for profiling people. CPF numbers are never stored or returned (individual entrepreneurs' legal names, which the Receita publishes with the owner's CPF, are masked), sanctions are never matched against individuals, natural-person rows are dropped from every list at ingestion, partners are linked across companies only through the masked document the Receita itself publishes, and international lists are matched against company names only. Cached answers expire in 24 hours. Details and contact: [terms](https://kyb-br-agents.marcelfons.workers.dev/terms).
 
 ## Status
 

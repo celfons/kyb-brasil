@@ -1,0 +1,253 @@
+{
+  "filters": {
+    "cnae": "47",
+    "state": "DF",
+    "city": null,
+    "opened_after": null,
+    "opened_before": null,
+    "hq_only": false
+  },
+  "page": 1,
+  "page_size": 100,
+  "total": 18,
+  "total_pages": 1,
+  "next_page": null,
+  "results": [
+    {
+      "cnpj": "36766178000195",
+      "cnpj_formatted": "36.766.178/0001-95",
+      "legal_name": "A CASEIRA UTILIDADES LTDA",
+      "trade_name": "A CASEIRA",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4759-8/99",
+      "opened_at": "1991-08-27",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37065331000110",
+      "cnpj_formatted": "37.065.331/0001-10",
+      "legal_name": "VIDRACARIA KELLY LTDA",
+      "trade_name": null,
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4744-0/01",
+      "opened_at": "1992-04-29",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37088457000100",
+      "cnpj_formatted": "37.088.457/0001-00",
+      "legal_name": "ARAUJO & RODRIGUES LTDA",
+      "trade_name": "PANIFICADORA E CONFEITARIA PALADAR",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4721-1/02",
+      "opened_at": "1992-03-26",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37093069000206",
+      "cnpj_formatted": "37.093.069/0002-06",
+      "legal_name": "LCM COMERCIO, IMPORTACAO E EXPORTACAO S.A",
+      "trade_name": null,
+      "registration_status": "ATIVA",
+      "is_headquarters": false,
+      "main_activity_code": "4781-4/00",
+      "opened_at": "1994-04-05",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37096831000119",
+      "cnpj_formatted": "37.096.831/0001-19",
+      "legal_name": "CASTRO CONSULTORIA E COMERCIO LTDA",
+      "trade_name": "CASTRO CONSULTORIA E COMERCIO",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4744-0/99",
+      "opened_at": "1992-06-15",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37135894000137",
+      "cnpj_formatted": "37.135.894/0001-37",
+      "legal_name": "W L CALCADOS LTDA",
+      "trade_name": "PONTA PE",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4782-2/01",
+      "opened_at": "1992-07-28",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37144631000194",
+      "cnpj_formatted": "37.144.631/0001-94",
+      "legal_name": "CASA DO PANIFICADOR PECAS E SERVICOS LTDA",
+      "trade_name": null,
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4789-0/99",
+      "opened_at": "1992-10-01",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37153756000180",
+      "cnpj_formatted": "37.153.756/0001-80",
+      "legal_name": "NUTRIMAR COMERCIO DE GENEROS ALIMENTICIOS LTDA",
+      "trade_name": "CEREALISTA MINEIRINHO",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4721-1/02",
+      "opened_at": "1992-11-16",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37159175000156",
+      "cnpj_formatted": "37.159.175/0001-56",
+      "legal_name": "COSTA E EUFRASIO LTDA",
+      "trade_name": "FRIOS E SACARIAS OESTE",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4721-1/03",
+      "opened_at": "1992-10-02",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37869476000335",
+      "cnpj_formatted": "37.869.476/0003-35",
+      "legal_name": "ARTE NOVA COZINHAS E ARMARIOS LTDA",
+      "trade_name": "ARTE NOVA COZINHAS E ARMARIOS",
+      "registration_status": "ATIVA",
+      "is_headquarters": false,
+      "main_activity_code": "4754-7/01",
+      "opened_at": "2000-06-06",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37982626000150",
+      "cnpj_formatted": "37.982.626/0001-50",
+      "legal_name": "FERREIRA & CHAGAS LTDA",
+      "trade_name": "TEMAC EQUIPAMENTOS E ASSISTENCIA TECNICA",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4753-9/00",
+      "opened_at": "1993-03-17",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "37999729000123",
+      "cnpj_formatted": "37.999.729/0001-23",
+      "legal_name": "COPPITEL ELETRONICA LTDA",
+      "trade_name": "COPPITEL",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4753-9/00",
+      "opened_at": "1993-05-26",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38004529000156",
+      "cnpj_formatted": "38.004.529/0001-56",
+      "legal_name": "PAPELARIA E LIVRARIA LIDER LTDA",
+      "trade_name": "LIDER MEGASTORE",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4761-0/03",
+      "opened_at": "1993-06-18",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38026266000186",
+      "cnpj_formatted": "38.026.266/0001-86",
+      "legal_name": "STATUS COMERCIO DE BEBIDAS LTDA",
+      "trade_name": "STATUS COMERCIO DE BEBIDAS E ASSADOS",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4723-7/00",
+      "opened_at": "1993-08-31",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38047726000152",
+      "cnpj_formatted": "38.047.726/0001-52",
+      "legal_name": "MARCOS ANTONIO CAVALCANTE MENDES",
+      "trade_name": "OCTO BANCA",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4761-0/01",
+      "opened_at": "1993-11-16",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38048807000177",
+      "cnpj_formatted": "38.048.807/0001-77",
+      "legal_name": "GENANDRA DE ANDRADE LIMA",
+      "trade_name": null,
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4789-0/01",
+      "opened_at": "1993-11-22",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38052080000100",
+      "cnpj_formatted": "38.052.080/0001-00",
+      "legal_name": "PONTAO15 COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA",
+      "trade_name": "PONTAO15 FERRAGENS",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4744-0/99",
+      "opened_at": "1993-11-25",
+      "city": "BRASILIA",
+      "state": "DF"
+    },
+    {
+      "cnpj": "38070942000119",
+      "cnpj_formatted": "38.070.942/0001-19",
+      "legal_name": "GESPIN GESSO E PINTURA LTDA",
+      "trade_name": "GESPIN",
+      "registration_status": "ATIVA",
+      "is_headquarters": true,
+      "main_activity_code": "4744-0/99",
+      "opened_at": "1994-03-02",
+      "city": "BRASILIA",
+      "state": "DF"
+    }
+  ],
+  "reference_month": "2026-09",
+  "summary": {
+    "en": "Page 1 of 1: 18 of 18 active establishment(s) matching CNAE 47, DF.",
+    "pt": "Página 1 de 1: 18 de 18 estabelecimento(s) ativo(s) correspondendo a CNAE 47, DF."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ), cadastro de estabelecimentos ativos",
+      "url": "https://www.gov.br/receitafederal/dados",
+      "fetched_at": "2026-10-11T23:15:07.140Z",
+      "reference_date": "2026-09-01"
+    }
+  ],
+  "data_freshness": "Receita Federal monthly dump 2026-09; only ACTIVE establishments. Legal names of individual entrepreneurs (MEI) have their CPF digits masked.",
+  "generated_at": "2026-10-11T23:15:07.146Z",
+  "cached": false,
+  "receipt": {
+    "replay_token": "0cc4a83c-8c4b-4023-8030-8004ec0ac125",
+    "replay_until": "2026-10-11T23:25:07.146Z"
+  }
+}

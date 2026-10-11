@@ -1,0 +1,28 @@
+{
+  "filters": {
+    "cnae": "47",
+    "state": "DF",
+    "city": null,
+    "opened_after": null,
+    "opened_before": null,
+    "hq_only": false
+  },
+  "total": 18,
+  "pages_of_100": 1,
+  "reference_month": "2026-09",
+  "summary": {
+    "en": "18 active establishment(s) match CNAE 47, DF (1 page(s) of 100 with br_company_list).",
+    "pt": "18 estabelecimento(s) ativo(s) correspondem a CNAE 47, DF (1 página(s) de 100 com br_company_list)."
+  },
+  "sources": [
+    {
+      "name": "Receita Federal (Dados Abertos CNPJ), cadastro de estabelecimentos ativos",
+      "url": "https://www.gov.br/receitafederal/dados",
+      "fetched_at": "2026-10-11T23:15:07.110Z",
+      "reference_date": "2026-09-01"
+    }
+  ],
+  "data_freshness": "Receita Federal monthly dump 2026-09; only ACTIVE establishments. Legal names of individual entrepreneurs (MEI) have their CPF digits masked.",
+  "generated_at": "2026-10-11T23:15:07.119Z",
+  "cached": false
+}

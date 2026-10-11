@@ -7,8 +7,10 @@ Real answers from the service for one company (ACARÁ AGROHEVEA, CNPJ 04.680.054
 | `br_company_check.json` | `br_company_check` | `GET /v1/company?cnpj=` | `tool: company` | free |
 | `br_sanctions_screen.json` | `br_sanctions_screen` | `GET /v1/sanctions?cnpj=` | `tool: sanctions` | 0.03 USDC |
 | `br_company_dossier.json` | `br_company_dossier` | `GET /v1/dossier?cnpj=` | `tool: dossier` | 0.15 USDC |
-| `br_risk_screen.json` | `br_risk_screen` | `GET /v1/risk?cnpj=` | (not on Apify) | 0.05 USDC |
-| `br_company_search.json` | `br_company_search` | `GET /v1/search?q=&state=` | (not on Apify) | free |
+| `br_risk_screen.json` | `br_risk_screen` | `GET /v1/risk?cnpj=` | `tool: risk` | 0.05 USDC |
+| `br_company_search.json` | `br_company_search` | `GET /v1/search?q=&state=` | `tool: search` | free |
+| `br_company_count.json` | `br_company_count` | `GET /v1/count?cnae=&state=&city=…` | (part of `tool: list`) | free |
+| `br_company_list.json` | `br_company_list` | `GET /v1/list?cnae=&state=…&page=` | `tool: list` | 0.05 USDC per page of 100 |
 
 How to read the dossier:
 
@@ -22,5 +24,7 @@ How to read the dossier:
 - `warnings[]`: sections that could not be produced in this run. In these files `FEDERAL_CONTRACTS_NOT_CONFIGURED`, `FEDERAL_DEBT_UNAVAILABLE` and `GAZETTES_UNAVAILABLE` appear because the development instance had no Portal da Transparência key, no PGFN load and no outbound access to Querido Diário; production fills those sections. A section that is `null` is never silently "nothing found".
 - `receipt.replay_token`: re-read the same paid answer free within 10 minutes (`br_replay` / `GET /v1/replay?token=`). The tokens in these files are expired.
 - `sources[]`: URL, fetch time and reference date of every source used, so each fact can be verified at the origin.
+
+The count and list examples come from a development registry holding a ~1% sample of the Receita Federal dump (18 retail establishments in DF); production answers the same shape over the full registry.
 
 Summaries here are the deterministic template; in production the dossier summary is written by a language model and validated against the JSON (numbers that are not in the data are rejected, falling back to the template).
