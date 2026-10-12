@@ -7,7 +7,8 @@
 <p align="center">
   <b>Due diligence on Brazilian companies for AI agents, in one call.</b><br>
   Registration, ownership, sanctions, forced-labour list, federal debt, environmental embargoes, federal contracts, BNDES financing, OFAC/UN/EU screening and an explained risk score, from official sources.<br>
-  Pay per call with <a href="https://x402.org">x402</a> (USDC). No signup, no API key.
+  Pay per call with <a href="https://x402.org">x402</a> (USDC). No signup, no API key.<br>
+  <b>Every paid answer is signed (Ed25519) and verifiable: keep the JSON as proof of what was checked and when.</b>
 </p>
 
 <p align="center">
@@ -124,7 +125,7 @@ Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs 
 
 ## Proof, actions and Portuguese
 
-- **Signed answers.** Every paid answer carries `attestation`: an Ed25519 signature over the canonical JSON, with `sha256`, `signed_at` and `key_id`. Keep the JSON and prove later what the service returned and when. Public key: [`/.well-known/kyb-attestation.json`](https://kyb-br-agents.marcelfons.workers.dev/.well-known/kyb-attestation.json); verifier: `POST /v1/verify` (or `verifyAttestation()` in the SDK).
+- **Signed answers, the audit record.** Every paid answer carries `attestation`: an Ed25519 signature over the canonical JSON, with `sha256`, `signed_at` and `key_id`. Keep the JSON and prove later, offline and to a third party (auditor, counterparty, regulator), what the service returned, what the sources said and when. The Apify dataset rows carry the same `attestation` inside `result`. Public key: [`/.well-known/kyb-attestation.json`](https://kyb-br-agents.marcelfons.workers.dev/.well-known/kyb-attestation.json); verifier: `POST /v1/verify` (or `verifyAttestation()` in the SDK).
 - **Explain the decision.** Each red flag has `action` (what to do about it, in English and Portuguese) and `risk.next_steps` lists the actions, most severe first: "request a CND before contracting", "do not buy from the embargoed area", "identify the beneficial owner behind the offshore partner".
 - **Offshore ownership.** Partners registered in jurisdictions on the Receita Federal list of tax-favoured jurisdictions (IN 1.037) come with `tax_haven: true` and the `PARTNER_IN_TAX_HAVEN` red flag (15 points).
 - **Portuguese.** Tool descriptions in Portuguese at `/mcp?lang=pt`, plus `/llms.txt?lang=pt` and `/openapi.json?lang=pt`. Summaries were already bilingual.
