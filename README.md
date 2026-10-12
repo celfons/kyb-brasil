@@ -133,6 +133,8 @@ Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs 
 
 ## Where agents find it
 
+- **From the service itself**: [`/v1/about`](https://kyb-br-agents.marcelfons.workers.dev/v1/about) (what it covers beyond a registry check, prices, docs; `?lang=pt`), [`/skill.md`](https://kyb-br-agents.marcelfons.workers.dev/skill.md) (Agent Skill: when and how to use it) and [`/.well-known/x402`](https://kyb-br-agents.marcelfons.workers.dev/.well-known/x402) (x402 discovery).
+
 - **x402 Bazaar** (Coinbase CDP facilitator catalog): `/v1/dossier`, `/v1/risk`, `/v1/sanctions` and the batch routes are listed with input/output schemas, after real settled payments on Base mainnet.
 - **MCP Registry**: [`io.github.celfons/kyb-brasil`](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.celfons/kyb-brasil), with the manifest at [`/server.json`](https://kyb-br-agents.marcelfons.workers.dev/server.json).
 - **Smithery**: `celfons/kyb-brasil`.
