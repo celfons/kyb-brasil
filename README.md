@@ -122,6 +122,13 @@ The tools are built from [`/openapi.json`](https://kyb-br-agents.marcelfons.work
 
 Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs per run) as an Actor on the Apify Store, billed per result: full dossier, risk screen, sanctions screening, registration check, or name search (a list of company names → CNPJs).
 
+## Proof, actions and Portuguese
+
+- **Signed answers.** Every paid answer carries `attestation`: an Ed25519 signature over the canonical JSON, with `sha256`, `signed_at` and `key_id`. Keep the JSON and prove later what the service returned and when. Public key: [`/.well-known/kyb-attestation.json`](https://kyb-br-agents.marcelfons.workers.dev/.well-known/kyb-attestation.json); verifier: `POST /v1/verify` (or `verifyAttestation()` in the SDK).
+- **Explain the decision.** Each red flag has `action` (what to do about it, in English and Portuguese) and `risk.next_steps` lists the actions, most severe first: "request a CND before contracting", "do not buy from the embargoed area", "identify the beneficial owner behind the offshore partner".
+- **Offshore ownership.** Partners registered in jurisdictions on the Receita Federal list of tax-favoured jurisdictions (IN 1.037) come with `tax_haven: true` and the `PARTNER_IN_TAX_HAVEN` red flag (15 points).
+- **Portuguese.** Tool descriptions in Portuguese at `/mcp?lang=pt`, plus `/llms.txt?lang=pt` and `/openapi.json?lang=pt`. Summaries were already bilingual.
+
 ## Where agents find it
 
 - **x402 Bazaar** (Coinbase CDP facilitator catalog): `/v1/dossier`, `/v1/risk`, `/v1/sanctions` and the batch routes are listed with input/output schemas, after real settled payments on Base mainnet.
@@ -176,6 +183,7 @@ Deterministic: the same data always gives the same score. Points add up to a 0-1
 | Registration not active (BAIXADA, INAPTA, SUSPENSA, NULA) | 60 |
 | Active sanction on another branch of the same company | 40 |
 | Active sanction on a corporate partner | 30 |
+| Partner registered in a tax haven (IN 1.037) | 15 |
 | Active IBAMA environmental embargo | 40 |
 | Sanction, forced labour or embargo in a company sharing a partner | 20 |
 | Active federal debt at the PGFN (+20 if above R$ 1 million) | 20 |
