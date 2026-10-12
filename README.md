@@ -103,6 +103,21 @@ console.log(await res.json());
 
 Payments settle in USDC on Base through the Coinbase facilitator. The payer needs USDC only (no ETH for gas).
 
+### SDK for agent frameworks
+
+```bash
+npm i @kyb-brasil/agent-tools
+```
+
+```ts
+import { createKybTools, toVercelAI, toLangChain, toOpenAI, toAnthropic } from "@kyb-brasil/agent-tools";
+const kyb = await createKybTools({ privateKey: process.env.KYB_PAYER_PK }); // wallet with a few USDC on Base; omit for free tools only
+// Vercel AI SDK: tools: toVercelAI(kyb, { tool, jsonSchema })   LangChain: toLangChain(kyb, tool)
+// OpenAI / Anthropic: toOpenAI(kyb) / toAnthropic(kyb), then kyb.execute(name, args)
+```
+
+The tools are built from [`/openapi.json`](https://kyb-br-agents.marcelfons.workers.dev/openapi.json) at runtime, with x402 payment handled for you. Data age per source: [`/status`](https://kyb-br-agents.marcelfons.workers.dev/status). Contract policy: fields in `/v1` are only added, never removed (see the `CHANGELOG`).
+
 ### Apify
 
 Prefer a card and a spreadsheet? The same reports run in batch (up to 500 CNPJs per run) as an Actor on the Apify Store, billed per result: full dossier, risk screen, sanctions screening, registration check, or name search (a list of company names → CNPJs).
