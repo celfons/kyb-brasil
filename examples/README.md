@@ -5,7 +5,7 @@ Real answers from the service for one company (ACARÁ AGROHEVEA, CNPJ 04.680.054
 | File | Tool (MCP) | HTTP | Apify input | Price |
 |---|---|---|---|---|
 | `br_company_check.json` | `br_company_check` | `GET /v1/company?cnpj=` | `tool: company` | free |
-| `br_sanctions_screen.json` | `br_sanctions_screen` | `GET /v1/sanctions?cnpj=` | `tool: sanctions` | 0.03 USDC |
+| `br_sanctions_screen.json` | `br_sanctions_screen` | `GET /v1/sanctions?cnpj=` | `tool: sanctions` | 0.02 USDC |
 | `br_company_dossier.json` | `br_company_dossier` | `GET /v1/dossier?cnpj=` | `tool: dossier` | 0.15 USDC |
 | `br_risk_screen.json` | `br_risk_screen` | `GET /v1/risk?cnpj=` | `tool: risk` | 0.05 USDC |
 | `br_company_search.json` | `br_company_search` | `GET /v1/search?q=&state=` | `tool: search` | free |
